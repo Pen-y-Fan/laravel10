@@ -16,3 +16,11 @@ indent_size = 2
 
 [docker-compose.yml]
 indent_size = 4
+
+# Laravel blade, my preference
+[*.blade.php]
+# I prefer to use soft-wrap than format blade to 120 characters, only indent 2 spaces and there is no need for a
+# final newline
+max_line_length = 9999
+indent_size = 2
+insert_final_newline = false

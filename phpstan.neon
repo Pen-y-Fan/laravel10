@@ -1,0 +1,59 @@
+includes:
+    # composer require symplify/phpstan-extensions --dev
+    # vendor/bin/phpstan analyse src --level max --error-format symplify
+    - vendor/symplify/phpstan-extensions/config/config.neon
+
+    # composer require --dev phpstan/phpstan-phpunit
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+
+    # larastan: composer require --dev nunomaduro/larastan
+    - vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    paths:
+        - app
+        - database
+        - tests
+
+    # The level 9 is the highest level see https://phpstan.org/user-guide/rule-levels
+    # 6. report missing typehints
+    # 7. report partially wrong union types
+    # 8. report calling methods and accessing properties on nullable types
+    # 9. be strict about the mixed type (causes problems with translations - which return mixed!!)
+    level: 8
+
+    excludePaths:
+        # - ./*/*/FileToBeExcluded.php
+
+        # config file for Easy Coding Standard, not a project file
+        - ./ecs.php
+
+
+        # checkMissingIterableValueType: false
+
+    # Ignore generic class Ds\Map
+    # checkGenericClassInNonGenericObjectType: false
+
+    ignoreErrors:
+        # Larstan recommendation:
+        # - '#Unsafe usage of new static#'
+
+        # Magic method is used is simulate enum
+        # - '#Call to an undefined static method#'
+
+        # message: '#PHPDoc tag @method has invalid value#'
+        # paths:
+        #  - src\Model\SpecialOfferType.php
+        #  - src\Model\ProductUnit.php
+
+    # buggy
+
+    # mixed
+
+    # cache buggy
+
+    # tests
+
+    # iterable
+
+

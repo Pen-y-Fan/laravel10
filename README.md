@@ -21,6 +21,7 @@ The following packages have been used:
 - [Laravel debug bar](https://github.com/barryvdh/laravel-debugbar) - debug bar for views, shows models, db calls etc.
 - [CaptainHook](https://github.com/captainhookphp/captainhook) - pre-commit hook to run the above tools before
   committing code
+- [Rector](https://getrector.com/documentation) - automatic code inspection and upgrading
 
 ## Requirements
 

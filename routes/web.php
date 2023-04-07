@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use Illuminate\Contracts\View\View;
 
 use Illuminate\Support\Facades\Route;
 
@@ -15,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', static fn (): \Illuminate\Contracts\View\View => view('welcome'));
+Route::get('/', static fn (): View => view('welcome'));

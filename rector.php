@@ -21,13 +21,16 @@ return static function (RectorConfig $rectorConfig): void {
     // register a single rule
     $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
 
-//     define sets of rules
-        $rectorConfig->sets([
-            SetList::DEAD_CODE,
-            SetList::TYPE_DECLARATION,
-            SetList::EARLY_RETURN,
-            SetList::CODING_STYLE,
-            SetList::NAMING,
-            LevelSetList::UP_TO_PHP_81
-        ]);
+    //  define sets of rules
+    $rectorConfig->sets([
+        SetList::DEAD_CODE,
+        SetList::TYPE_DECLARATION,
+        SetList::EARLY_RETURN,
+        SetList::CODING_STYLE,
+        SetList::NAMING,
+        LevelSetList::UP_TO_PHP_81,
+    ]);
+
+    // Import FQN to use statements:
+    $rectorConfig->importNames();
 };

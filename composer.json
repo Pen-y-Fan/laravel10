@@ -63,8 +63,8 @@
         "ide": "@php artisan ide-helper:models -W",
         "lint": "parallel-lint --exclude .git --exclude node_modules --exclude storage --exclude vendor .",
         "phpstan": "phpstan analyse -c phpstan.neon --error-format symplify --ansi",
-        "rector": "rector process",
-        "rector-dr": "rector process --dry-run",
+        "rector": "rector --ansi",
+        "rector-dr": "rector --dry-run --ansi",
         "tests": "phpunit --testdox"
     },
     "extra": {

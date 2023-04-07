@@ -23,19 +23,23 @@
                 "options": []
             },
             {
-                "action": "vendor\\bin\\ecs",
+                "action": "vendor\\bin\\ecs --no-progress-bar --no-ansi",
                 "options": []
             },
             {
-                "action": "vendor\\bin\\phpstan analyse",
+                "action": "vendor\\bin\\phpstan analyse --no-progress --no-ansi",
                 "options": []
             },
             {
-                "action": "vendor\\bin\\phpunit",
+                "action": "vendor\\bin\\phpunit --colors=never --no-progress --stop-on-failure",
                 "options": []
             },
             {
                 "action": "vendor\\bin\\parallel-lint --exclude .git --exclude node_modules --exclude storage --exclude vendor .",
+                "options": []
+            },
+            {
+                "action": "vendor\\bin\\rector --dry-run --no-progress-bar --no-ansi",
                 "options": []
             }
         ]

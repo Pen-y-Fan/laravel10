@@ -150,9 +150,15 @@ PHPUnit 10.0.19 by Sebastian Bergmann and contributors.
 Runtime:       PHP 8.1.16
 Configuration: <your directory>\laravel10\phpunit.xml
 
-..                                                                  2 / 2 (100%)
+..                                                 2 / 2 (100%)
 
-Time: 00:00.124, Memory: 24.00 MB
+Time: 00:00.131, Memory: 24.00 MB
+
+Example (Tests\Unit\Example)
+ ✔ That true is true
+
+Example (Tests\Feature\Example)
+ ✔ The application returns a successful response
 
 OK (2 tests, 2 assertions)
 ```
@@ -238,15 +244,16 @@ once other PhpStan errors have been fixed!
 
 ## Commit hook
 
-[GrumPHP](https://github.com/phpro/grumphp) has been installed and configured to run a pre-commit hook, when you
-`git commit` any code ECS, PhpStan and PHPUnit will be automatically run, if any of these fail the commit will be
-rejected. You can always write a rule to bypass the failing code, but it is better to fix the problem.
+[CaptainHook](https://github.com/captainhookphp/captainhook) has been installed and configured to run a pre-commit hook,
+when you `git commit` any code ECS, PhpStan, Parallel lint and PHPUnit will be automatically run, if any of these fail
+the commit will be rejected. You can always write a rule to bypass the failing code, but it is better to fix the
+problem.
 
 ## IDE Helper
 
 - [Laravel IDE Helper Generator](https://github.com/barryvdh/laravel-ide-helper)
 
-To help autocompletion in PhpStorm laravel IDE helper has been installed, to update models run:
+To help autocompletion in PhpStorm Laravel IDE helper has been installed, to update models run:
 
 ```shell
 composer ide

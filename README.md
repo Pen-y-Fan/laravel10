@@ -214,32 +214,13 @@ You should see the results:
 If PhpStan identifies any problems then review and fix them one by one. See
 the [documentation for help](https://phpstan.org/user-guide/getting-started).
 
-### PhpStan Known problems
-
-PhpStan has a dislike for translation strings! There will often a case, when using Filament, that the string being
-translated **_may_** return mixed. This is due to the way the translation function **\__('string to be translated')**
-works.
-
-- If you pass the function **null**, it will return **null**.
-- If you pass a **string** it will return a **string**.
-- If you pass an **array** it will return an **array**.
-
-Filament 'labels' will expect a string or closure. As we are passing in a **string** we will get a **string** back,
-unfortunately PhpStan doesn't understand, the doc block states the return time is **mixed**.
-
-Typical error message:
-
-```text
-Parameter #1 $label of static method Filament\\Widgets\\StatsOverviewWidget\\Card::make() expects string, mixed given
-```
-
-The fix is to ignore this, type of error:
+If the problem is related to third party code, it's possible to ignore this type of error:
 
 ```shell
 composer phpstan-baseline
 ```
 
-This will generate a **phpstan-baseline.neon** file, which should be added to version control. Only run this commend
+This will generate a **phpstan-baseline.neon** file, which should be added to version control. Only run this command
 once other PhpStan errors have been fixed!
 
 ## Commit hook
@@ -248,6 +229,14 @@ once other PhpStan errors have been fixed!
 when you `git commit` any code ECS, PhpStan, Parallel lint and PHPUnit will be automatically run, if any of these fail
 the commit will be rejected. You can always write a rule to bypass the failing code, but it is better to fix the
 problem.
+
+To install the hooks:
+
+```shell
+vendor/bin/captainhook install
+```
+
+Answer yes to all the questions, the **captainhook.json** config will take care of the hooks that run.
 
 ## IDE Helper
 

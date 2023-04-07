@@ -23,11 +23,15 @@
                 "options": []
             },
             {
-                "action": "vendor\\bin\\phpunit",
+                "action": "vendor\\bin\\ecs",
                 "options": []
             },
             {
-                "action": "vendor\\bin\\ecs",
+                "action": "vendor\\bin\\phpstan analyse",
+                "options": []
+            },
+            {
+                "action": "vendor\\bin\\phpunit",
                 "options": []
             },
             {

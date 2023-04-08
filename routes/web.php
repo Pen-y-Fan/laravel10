@@ -1,8 +1,9 @@
 <?php
 
 declare(strict_types=1);
-use Illuminate\Contracts\View\View;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', static fn (): View => view('welcome'));
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(static function (): void {
+    Route::get('/dashboard', static fn (): Factory|View => view('dashboard'))->name('dashboard');
+});

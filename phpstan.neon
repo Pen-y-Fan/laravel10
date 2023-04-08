@@ -8,6 +8,7 @@ includes:
 
     # larastan: composer require --dev nunomaduro/larastan
     - vendor/nunomaduro/larastan/extension.neon
+    - phpstan-baseline.neon
 
 parameters:
     paths:

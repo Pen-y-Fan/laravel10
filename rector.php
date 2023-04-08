@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
+use Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector;
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
@@ -33,4 +34,9 @@ return static function (RectorConfig $rectorConfig): void {
 
     // Import FQN to use statements:
     $rectorConfig->importNames();
+
+    $rectorConfig->skip([
+        UnSpreadOperatorRector::class,
+    ]);
+
 };

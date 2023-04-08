@@ -16,9 +16,8 @@ class RedirectIfAuthenticated
      * Handle an incoming request.
      *
      * @param \Closure(Request): (Response) $next
-     * @param array<int, ?string> $guards
      */
-    public function handle(Request $request, Closure $next, array $guards = []): Response
+    public function handle(Request $request, Closure $next, string ...$guards): Response
     {
         $guards = empty($guards) ? [null] : $guards;
 

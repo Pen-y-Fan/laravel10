@@ -46,11 +46,6 @@ parameters:
 			path: app/Actions/Jetstream/RemoveTeamMember.php
 
 		-
-			message: "#^Method App\\\\Models\\\\TeamInvitation\\:\\:team\\(\\) return type with generic class Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\BelongsTo does not specify its types\\: TRelatedModel, TChildModel$#"
-			count: 1
-			path: app/Models/TeamInvitation.php
-
-		-
 			message: "#^Class Database\\\\Factories\\\\TeamFactory extends generic class Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory but does not specify its types\\: TModel$#"
 			count: 1
 			path: database/factories/TeamFactory.php

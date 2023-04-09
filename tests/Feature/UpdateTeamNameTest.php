@@ -10,7 +10,7 @@ use Laravel\Jetstream\Http\Livewire\UpdateTeamNameForm;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class UpdateTeamNameTest extends TestCase
+final class UpdateTeamNameTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -29,6 +29,6 @@ class UpdateTeamNameTest extends TestCase
             ->call('updateTeamName');
 
         $this->assertCount(1, $user->fresh()->ownedTeams);
-        $this->assertEquals('Test Team', $user->currentTeam->fresh()->name);
+        $this->assertSame('Test Team', $user->currentTeam->fresh()->name);
     }
 }

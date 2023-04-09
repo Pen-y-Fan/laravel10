@@ -15,7 +15,7 @@ use Laravel\Jetstream\Events\TeamMemberAdded;
 use Laravel\Jetstream\Jetstream;
 use Laravel\Jetstream\Rules\Role;
 
-class AddTeamMember implements AddsTeamMembers
+final class AddTeamMember implements AddsTeamMembers
 {
     /**
      * Add a new team member to the given team.
@@ -43,7 +43,7 @@ class AddTeamMember implements AddsTeamMembers
     /**
      * Validate the add member operation.
      */
-    protected function validate(Team $team, string $email, ?string $role): void
+    private function validate(Team $team, string $email, ?string $role): void
     {
         Validator::make([
             'email' => $email,
@@ -60,7 +60,7 @@ class AddTeamMember implements AddsTeamMembers
      *
      * @return array{email: string[], role?: Role[]|string[]}
      */
-    protected function rules(): array
+    private function rules(): array
     {
         return array_filter([
             'email' => ['required', 'email', 'exists:users'],
@@ -73,7 +73,7 @@ class AddTeamMember implements AddsTeamMembers
     /**
      * Ensure that the user is not already on the team.
      */
-    protected function ensureUserIsNotAlreadyOnTeam(Team $team, string $email): Closure
+    private function ensureUserIsNotAlreadyOnTeam(Team $team, string $email): Closure
     {
         return static function ($validator) use ($team, $email): void {
             $validator->errors()->addIf(

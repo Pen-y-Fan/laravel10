@@ -16,7 +16,17 @@ parameters:
 			path: app/Actions/Fortify/UpdateUserPassword.php
 
 		-
+			message: "#^Instanceof between App\\\\Models\\\\User and Illuminate\\\\Contracts\\\\Auth\\\\MustVerifyEmail will always evaluate to false\\.$#"
+			count: 1
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
 			message: "#^Parameter \\#1 \\$photo of method App\\\\Models\\\\User\\:\\:updateProfilePhoto\\(\\) expects Illuminate\\\\Http\\\\UploadedFile, string given\\.$#"
+			count: 1
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
 			count: 1
 			path: app/Actions/Fortify/UpdateUserProfileInformation.php
 
@@ -107,11 +117,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
-			count: 1
-			path: tests/Feature/CreateApiTokenTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: tests/Feature/CreateApiTokenTest.php
 

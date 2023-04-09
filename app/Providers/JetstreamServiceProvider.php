@@ -14,7 +14,7 @@ use App\Actions\Jetstream\UpdateTeamName;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
 
-class JetstreamServiceProvider extends ServiceProvider
+final class JetstreamServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -43,7 +43,7 @@ class JetstreamServiceProvider extends ServiceProvider
     /**
      * Configure the roles and permissions that are available within the application.
      */
-    protected function configurePermissions(): void
+    private function configurePermissions(): void
     {
         Jetstream::defaultApiTokenPermissions(['read']);
 

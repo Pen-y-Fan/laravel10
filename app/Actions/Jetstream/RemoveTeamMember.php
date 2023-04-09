@@ -12,7 +12,7 @@ use Illuminate\Validation\ValidationException;
 use Laravel\Jetstream\Contracts\RemovesTeamMembers;
 use Laravel\Jetstream\Events\TeamMemberRemoved;
 
-class RemoveTeamMember implements RemovesTeamMembers
+final class RemoveTeamMember implements RemovesTeamMembers
 {
     /**
      * Remove the team member from the given team.
@@ -31,7 +31,7 @@ class RemoveTeamMember implements RemovesTeamMembers
     /**
      * Authorize that the user can remove the team member.
      */
-    protected function authorize(User $user, Team $team, User $teamMember): void
+    private function authorize(User $user, Team $team, User $teamMember): void
     {
         if (Gate::forUser($user)->check('removeTeamMember', $team)) {
             return;
@@ -47,7 +47,7 @@ class RemoveTeamMember implements RemovesTeamMembers
     /**
      * Ensure that the currently authenticated user does not own the team.
      */
-    protected function ensureUserDoesNotOwnTeam(User $user, Team $team): void
+    private function ensureUserDoesNotOwnTeam(User $user, Team $team): void
     {
         if ($user->id === $team->owner->id) {
             throw ValidationException::withMessages([
